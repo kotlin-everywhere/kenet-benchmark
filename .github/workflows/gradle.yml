@@ -24,7 +24,9 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle and Benchmark
-        run: ./gradlew build && ./benchmark.sh
+        run: ./gradlew installDist
+      - name: Bachmark
+        run: ./benchmark.sh
       - name: Archive Result
         uses: actions/upload-artifact@v2
         with:
