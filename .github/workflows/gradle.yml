@@ -27,6 +27,8 @@ jobs:
         run: ./gradlew build
       - name: Bachmark
         run: ./benchmark.sh
+      - name: Archive Result
+        uses: actions/upload-artifact@v2
         with:
           name: result
           path: result.txt
