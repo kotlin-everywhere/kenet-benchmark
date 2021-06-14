@@ -1,3 +1,3 @@
-include(":benchmark-2-memory-usage")
+include(":benchmark-2-memory-usage", ":benchmark-3-execution-image-size")
 
-include(":api", ":quit")
+include(":common", ":quit")

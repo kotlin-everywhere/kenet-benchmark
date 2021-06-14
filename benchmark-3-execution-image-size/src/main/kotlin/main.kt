@@ -2,15 +2,18 @@ import kotlinx.coroutines.*
 import org.kotlin.everywhere.net.HttpEngine
 import org.kotlin.everywhere.net.createServer
 import org.kotlin.everywhere.net.invoke
+import java.io.File
+
+private class TargetForJarPath
 
 fun Api.init(quitDeferred: CompletableDeferred<Unit>) {
     benchmark {
+        val imageFile = TargetForJarPath::class.java.protectionDomain.codeSource.location.toURI().let(::File)
+
         log(
-            "2. memory-usage",
-            "total memory: ${Runtime.getRuntime().totalMemory().toMb()}",
-            "max memory: ${Runtime.getRuntime().maxMemory().toMb()}",
-            "free memory: ${Runtime.getRuntime().freeMemory().toMb()}",
-            "used memory: ${(Runtime.getRuntime().maxMemory() - Runtime.getRuntime().freeMemory()).toMb()}",
+            "3. execution-image-size",
+            "imagePath : ${imageFile.absolutePath}",
+            "imageSize :  ${imageFile.length().toMb()}",
         )
     }
     quit.invoke {

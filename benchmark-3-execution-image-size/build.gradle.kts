@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    id("com.github.johnrengelman.shadow")
     application
 }
 
@@ -9,7 +10,7 @@ kotlin {
         val main by getting {
             dependencies {
                 implementation(project(":common"))
-                implementation("com.github.kotlin-everywhere.kenet:kenet-client-jvm:7c39638c32")
+                implementation("com.github.kotlin-everywhere.kenet:kenet-server-engine-http-jvm:7c39638c32")
             }
         }
     }
@@ -18,4 +19,5 @@ kotlin {
 
 application {
     mainClass.set("MainKt")
+    applicationDefaultJvmArgs = listOf("-Xmx7m")
 }

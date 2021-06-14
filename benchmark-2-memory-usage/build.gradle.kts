@@ -8,7 +8,7 @@ kotlin {
         @Suppress("UNUSED_VARIABLE")
         val main by getting {
             dependencies {
-                implementation(project(":api"))
+                implementation(project(":common"))
                 implementation("com.github.kotlin-everywhere.kenet:kenet-server-engine-http-jvm:7c39638c32")
             }
         }
